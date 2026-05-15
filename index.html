@@ -5,11 +5,28 @@
     <title>The Chaunce of the Dyse</title>
     <script src="https://cdn.jsdelivr.net/npm/ceteicean@1.6.0/dist/browser/CETEI.js"></script>
     <style>
-        /* Basic styling for the poem */
-        body { font-family: 'Georgia', serif; line-height: 1.6; padding: 40px; background: #fdfdfd; }
-        tei-title { display: block; font-size: 2em; font-weight: bold; margin-bottom: 20px; text-align: center; }
-        tei-lg { display: block; margin-bottom: 1.5em; } /* Line groups (stanzas) */
-        tei-l { display: block; margin-left: 20px; }    /* Individual lines */
+    body { 
+        font-family: 'Georgia', serif; 
+        line-height: 1.6; 
+        padding: 40px; 
+        background: #fdfdfd; 
+    }
+    /* Hide the TEI Header (metadata) so it doesn't block the view */
+    tei-teiheader { 
+        display: none; 
+    }
+    /* Ensure the body and poem lines are visible */
+    tei-body { 
+        display: block; 
+    }
+    tei-lg { 
+        display: block; 
+        margin-bottom: 2em; 
+    }
+    tei-l { 
+        display: block; 
+        margin-left: 20px; 
+    }
     </style>
 </head>
 <body>
