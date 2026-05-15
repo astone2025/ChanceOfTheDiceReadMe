@@ -1,52 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>The Chaunce of the Dyse</title>
-    <link rel="stylesheet" href="https://teic.github.io/CETEIcean/css/CETEIcean.css">
-    <script src="https://teic.github.io/CETEIcean/js/CETEI.js"></script>
+    <script src="https://unpkg.com/ceteicean/dist/browser/CETEI.js"></script>
     <style>
-        body { margin: 0; padding: 0; background: transparent; }
-        #TEI-container { 
-            background: white; 
-            padding: 40px; 
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-        }
-        tei-lg { display: block; margin-bottom: 25px; }
-        tei-l { display: block; margin-left: 2em; text-indent: -2em; }
-        tei-l::before {
-            content: attr(n);
-            display: inline-block;
-            width: 3em;
-            margin-left: -5em;
-            text-align: right;
-            font-size: 0.8em;
-            color: #888;
-            padding-right: 1em;
-        }
-        tei-note[type="dice"] { 
-            float: left; 
-            margin-left: -4em; 
-            font-weight: bold; 
-            color: #b22222; 
-            font-family: monospace;
-        }
-        tei-head { display: block; text-align: center; font-weight: bold; font-size: 1.5em; margin-bottom: 0.5em; }
-        tei-head[type="sub"] { font-size: 1em; font-style: italic; margin-bottom: 2em; text-align: center; }
-        tei-pb { display: block; text-align: center; border-bottom: 1px double #ccc; margin: 30px 0; color: #999; font-size: 0.8em; }
-        tei-pb::before { content: "Page " attr(n); }
+        /* Basic styling for the poem */
+        body { font-family: 'Georgia', serif; line-height: 1.6; padding: 40px; background: #fdfdfd; }
+        tei-title { display: block; font-size: 2em; font-weight: bold; margin-bottom: 20px; text-align: center; }
+        tei-lg { display: block; margin-bottom: 1.5em; } /* Line groups (stanzas) */
+        tei-l { display: block; margin-left: 20px; }    /* Individual lines */
     </style>
 </head>
 <body>
-    <div id="TEI-container">Loading Transcription...</div>
+
+    <div id="tei-container">
+        <p>Loading the poem...</p>
+    </div>
+
     <script>
-        var c = new CETEI();
-        // Pointing to your RAW GitHub XML
-        c.getHTML5('https://raw.githubusercontent.com/astone2025/ChanceOfTheDiceReadMe/main/hammond-transcription-tei.xml', function(data) {
-            document.getElementById("TEI-container").innerHTML = "";
-            document.getElementById("TEI-container").appendChild(data);
+        const c = new CETEI();
+        // This fetches your specific XML file from the repository
+        c.getHTML5("hammond-transcription-tei.xml", function(data) {
+            document.getElementById("tei-container").innerHTML = "";
+            document.getElementById("tei-container").appendChild(data);
         });
     </script>
+
 </body>
 </html>
