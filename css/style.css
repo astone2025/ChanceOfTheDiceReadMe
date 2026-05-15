@@ -1,0 +1,108 @@
+/* General Layout */
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fdfdfd;
+    color: #333;
+}
+
+header, footer {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+#TEI-container {
+    background: white;
+    padding: 40px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* CETEIcean Elements */
+
+/* Stanzas */
+tei-lg[type="stanza"] {
+    display: block;
+    margin-bottom: 30px;
+}
+
+/* Lines */
+tei-l {
+    display: block;
+    position: relative;
+    margin-left: 10.5em; /* Shifted for dice rolls */
+    padding-right: 4em;
+    min-height: 1.6em;
+}
+
+/* Line numbers (Right side, every 5th) */
+tei-l[n]::after {
+    /* Only show if multiple of 5 */
+    content: attr(n);
+    position: absolute;
+    right: 0;
+    font-size: 0.8em;
+    color: #aaa;
+    display: none; /* Default hidden */
+}
+
+/* Logic to show every 5th line using CSS nth-child if possible, 
+   but since line 1 might be mid-stanza, we'll manually check attributes */
+tei-l[n$="5"]::after, tei-l[n$="0"]::after {
+    display: inline-block;
+}
+
+/* Dice Notes (Marginalia) */
+tei-note[type="dice"] {
+    position: absolute;
+    left: -6.6em; /* Consistent with previous layout */
+    font-weight: bold;
+    color: #b22222;
+    font-family: monospace;
+}
+
+/* Headings */
+tei-head {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+tei-head[type="sub"] {
+    font-size: 1em;
+    font-style: italic;
+    margin-bottom: 2em;
+}
+
+/* Page Breaks - Hidden as requested */
+tei-pb {
+    display: none;
+}
+
+/* Trailer */
+tei-trailer {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+    font-style: italic;
+}
+
+/* Footnotes section (Back) */
+tei-back {
+    display: block;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid #333;
+    font-size: 0.9em;
+}
+tei-back tei-head {
+    text-align: left;
+    font-size: 1.2em;
+}

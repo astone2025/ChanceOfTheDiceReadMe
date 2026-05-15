@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chaunce of the Dyse - TEI Edition</title>
+    <!-- Load CETEIcean Styles and Script -->
+    <link rel="stylesheet" href="https://teic.github.io/CETEIcean/css/CETEIcean.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://teic.github.io/CETEIcean/js/CETEI.js"></script>
+</head>
+<body>
+    <header>
+        <h1>The Chaunce of the Dyse</h1>
+        <p>A Digital TEI Edition based on E.P. Hammond's Transcription</p>
+    </header>
+
+    <main id="TEI-container">
+        <p>Loading transcription...</p>
+    </main>
+
+    <footer>
+        <p>Produced for the ITP Project, 2026.</p>
+    </footer>
+
+    <script>
+        var c = new CETEI();
+        // Fetch and render the TEI XML file
+        c.getHTML5('xml/hammond-transcription-tei.xml', function(data) {
+            document.getElementById("TEI-container").innerHTML = "";
+            document.getElementById("TEI-container").appendChild(data);
+            
+            // Log for verification
+            console.log("TEI Rendered successfully.");
+        });
+    </script>
+</body>
+</html>
